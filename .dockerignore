@@ -1,0 +1,9 @@
+node_modules
+models/*
+!models/20250626-170112-amber-surface.tar.gz
+.git
+__pycache__
+*.log
+.rasa
+client/node_modules
+server/node_modules 
