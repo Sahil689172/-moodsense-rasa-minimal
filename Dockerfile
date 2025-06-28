@@ -9,4 +9,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 EXPOSE 10000
 
-CMD ["rasa", "run", "--enable-api", "--cors", "*", "--debug", "--port", "10000"]
+CMD ["rasa", "run", "--enable-api", "--port", "$PORT", "--cors", "*"]
