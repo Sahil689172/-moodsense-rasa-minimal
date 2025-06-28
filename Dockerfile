@@ -7,6 +7,11 @@ COPY . /app
 RUN pip install --upgrade pip
 RUN pip install --no-cache-dir -r requirements.txt
 
-EXPOSE 10000
+# Optional: Silence SQLAlchemy warnings and ensure compatibility
+ENV SQLALCHEMY_SILENCE_UBER_WARNING=1
+RUN pip install "sqlalchemy<2.0"
 
-CMD ["rasa", "run", "--enable-api", "--port", "$PORT", "--cors", "*"]
+EXPOSE 5005
+
+CMD ["sh", "-c", "rasa run --enable-api --port ${PORT:-5005} --cors '*'" ]
+
